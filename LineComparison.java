@@ -3,30 +3,32 @@ public class LineComparison {
 	double LineLength()
 	{
 		Scanner sc=new Scanner(System.in);
-		int x1=sc.nextInt(); 
-		int x2=sc.nextInt();
-		int y1=sc.nextInt();
-		int y2=sc.nextInt();
-	    int x=(x2-x1)*(x2-x1);
-	    int y=(y2-y1)*(y2-y1);
+		int x1= sc.nextInt(); 
+		int x2= sc.nextInt();
+		int y1= sc.nextInt();
+		int y2= sc.nextInt();
+	   	int x= (x2-x1) * (x2-x1);
+	    	int y= (y2-y1) * (y2-y1);
 		double length= Math.sqrt(x+y);
 		return length;
 	}
 	
-	void equal()
-	{
-		System.out.println("Enter Coordinates of the First Line");
-		String p=String.valueOf(LineLength());
-		System.out.println("Enter Coordinates of the second Line");
-		String q=String.valueOf(LineLength());
-		if(p.equals(q))
+	void compare()
+	{	System.out.println("Enter the coordinates of first line");
+		String p= String.valueOf(LineLength());
+		System.out.println("Enter the coordinates of second line");
+		String q= String.valueOf(LineLength());
+		if(p.compareTo(q)==0)
 		{
 			System.out.println("Lines are equal");
-		
 		}
-		else
+		else if(p.compareTo(q)<0)
 		{
-		System.out.println("Line are not equal");
+			System.out.println("The first line is smaller in length compared to the second line");
+		}
+		else if(p.compareTo(q)>0)
+		{
+			System.out.println("The first line is larger in length compared to the second line");
 		}
 	}
 	
@@ -35,7 +37,7 @@ public class LineComparison {
 		System.out.println("Welcome to Line Comparison Computation Program ");
 		LineComparison lc=new LineComparison();
 		Scanner sc=new Scanner(System.in);
-		lc.equal();
+		lc.compare();
 	}
 	
 
