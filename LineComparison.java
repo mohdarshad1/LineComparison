@@ -1,44 +1,53 @@
-import java.util.*;
-public class LineComparison {
-	double LineLength()
-	{
-		Scanner sc=new Scanner(System.in);
-		int x1= sc.nextInt(); 
-		int x2= sc.nextInt();
-		int y1= sc.nextInt();
-		int y2= sc.nextInt();
-	   	int x= (x2-x1) * (x2-x1);
-	    	int y= (y2-y1) * (y2-y1);
-		double length= Math.sqrt(x+y);
-		return length;
-	}
-	
-	void compare()
-	{	System.out.println("Enter the coordinates of first line");
-		String p= String.valueOf(LineLength());
-		System.out.println("Enter the coordinates of second line");
-		String q= String.valueOf(LineLength());
-		if(p.compareTo(q)==0)
-		{
-			System.out.println("Lines are equal");
-		}
-		else if(p.compareTo(q)<0)
-		{
-			System.out.println("The first line is smaller in length compared to the second line");
-		}
-		else if(p.compareTo(q)>0)
-		{
-			System.out.println("The first line is larger in length compared to the second line");
-		}
-	}
-	
-	public static void main(String[] args) 
-	{
-		System.out.println("Welcome to Line Comparison Computation Program ");
-		LineComparison lc=new LineComparison();
-		Scanner sc=new Scanner(System.in);
-		lc.compare();
-	}
-	
+import java.util.Scanner;
 
+public class LineComparison {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Welcome to line comparison problem\n");
+	    LineCompare();	
+		}
+		
+	
+	public static double lengthCalculator() {
+		Scanner sc=new Scanner(System.in);
+		int x1,y1;
+		int x2,y2;
+		Double Length;
+		
+		System.out.println("Enter the first coordinate (x1,y1) of line");
+		x1=sc.nextInt();
+		y1=sc.nextInt();
+		
+		System.out.println("Enter the second coordinate (x2,y2) of line1");
+		x2=sc.nextInt();
+		y2=sc.nextInt();
+		
+		Length=Math.sqrt( ((x2-x1)*(x2-x1)) + ((y2-y1)*(y2-y1)) );
+		
+		return Length;
+	}
+	
+	public static void LineCompare() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Please enter deatails of line 1");
+		Double Length1= lengthCalculator();
+		
+		System.out.println("Please enter deatails of line 2");
+		Double Length2= lengthCalculator();
+		
+		if(Length1.compareTo(Length2)==0) {
+			
+			System.out.println("Lines are equal");
+			}
+			
+			else {
+				
+				if(Length1.compareTo(Length2)>0)
+					System.out.println("line 1 is bigger than line 2");
+				
+				else System.out.println("line 2 is bigger then line 1");
+		}
+
+	}
 }
